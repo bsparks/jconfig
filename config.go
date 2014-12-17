@@ -52,6 +52,13 @@ func LoadConfigString(s string) *Config {
     return result
 }
 
+// loads / creates config from a go map
+func LoadConfigMap(ndata map[string]interface{}) *Config {
+    result := newConfig()
+    result.MapMerge(ndata)
+    return result
+}
+
 func (c *Config) MapMerge(ndata map[string]interface{}) {
     c.merge(ndata)
 }
